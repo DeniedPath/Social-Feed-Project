@@ -2,20 +2,13 @@
 @import "tailwindcss/utilities";
 
 :root {
-  --primary-color: #646cff;
-  --primary-hover: #535bf2;
-  --background-dark: #242424;
-  --background-light: #ffffff;
-  --text-dark: rgba(255, 255, 255, 0.87);
-  --text-light: #213547;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: var(--text-dark);
-  background-color: var(--background-dark);
+  color: #e0e0e0;
+  background-color: #1e1e1e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,56 +16,166 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@layer components {
+/* Global Styles */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--text-color);
+  padding: 20px;
+}
+
+a {
+  font-weight: 500;
+  color: #6366f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4f46e5;
+}
+
+/* Typography */
+h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+}
+
+/* Button Styles */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #3b82f6;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+button:active {
+  background-color: #1e40af;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px auto rgba(99, 102, 241, 0.5);
+}
+
+/* Card Styling */
+.bg-white {
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+.rounded-lg {
+  border-radius: 12px;
+}
+
+.shadow {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.p-4 {
+  padding: 16px;
+}
+
+.mb-6 {
+  margin-bottom: 24px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+/* Input Fields */
+textarea,
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #333;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
+}
+
+/* Comments */
+.border-t {
+  border-top: 1px solid #444;
+  padding-top: 16px;
+}
+
+.text-sm {
+  font-size: 0.9rem;
+}
+
+.text-gray-500 {
+  color: #9ca3af;
+}
+
+.text-gray-800 {
+  color: #d1d5db;
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
   body {
-    @apply flex items-center justify-center min-h-screen bg-gray-900 text-white p-4;
+    background-color: #f9fafb;
+    color: #111827;
   }
 
-  h1 {
-    @apply text-4xl font-bold text-center;
+  .bg-white {
+    background-color: #ffffff;
+    color: #111827;
+    border: 1px solid #e5e7eb;
   }
 
-  a {
-    @apply font-medium text-indigo-400 transition-colors duration-200;
+  textarea,
+  input {
+    background-color: #f9fafb;
+    color: #111827;
+    border: 1px solid #d1d5db;
   }
 
-  a:hover {
-    @apply text-indigo-300;
+  textarea:focus,
+  input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.4);
   }
 
   button {
-    @apply px-4 py-2 rounded-lg text-white font-medium transition-all duration-200 bg-gray-800 border border-transparent;
+    background-color: #6366f1;
+    color: white;
   }
 
   button:hover {
-    @apply border-indigo-400 bg-gray-700;
-  }
-
-  button:focus,
-  button:focus-visible {
-    @apply outline-none ring-4 ring-indigo-400 ring-opacity-50;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      color: var(--text-light);
-      background-color: var(--background-light);
-    }
-
-    body {
-      @apply bg-gray-100 text-gray-900;
-    }
-
-    a:hover {
-      @apply text-indigo-500;
-    }
-
-    button {
-      @apply bg-gray-200 text-gray-900;
-    }
-
-    button:hover {
-      @apply bg-gray-300 border-gray-400;
-    }
+    background-color: #4f46e5;
   }
 }
